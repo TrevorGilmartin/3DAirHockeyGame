@@ -23,7 +23,14 @@ namespace WindowsClient.AirHockeyGame.Scenes
         SpriteFont spriteFont;
         Texture2D HUD;
         public static int dartsLeft = 10;
-        public Player player;
+
+        public static Player player;
+        public static Paddle paddle;
+        public static OpponentPaddle opponentPaddle;
+        public static Ball ball;
+        public static LeftWall leftWall;
+        public static RightWall rightWall;
+
         PaddleController paddleController;
         SoundEffect seFail;
 
@@ -42,19 +49,19 @@ namespace WindowsClient.AirHockeyGame.Scenes
 
             AddObject(new StaticModelObject("room", Vector3.Zero));
 
-            var paddle1 = new Paddle(new Vector3(0, 2, 50));//placement of Dart
-            AddObject(paddle1);
+            paddle = new Paddle(new Vector3(0, 2, 50));//placement of Dart
+            AddObject(paddle);
 
-            var wall1 = new LeftWall(new Vector3(5.5f, 2, 2));
-            AddObject(wall1);
+            leftWall = new LeftWall(new Vector3(5.5f, 2, 2));
+            AddObject(leftWall);
 
-            var paddle2 = new OpponentPaddle(new Vector3(0, 2, 0));//placement of Player
-            AddObject(paddle2);
+            opponentPaddle = new OpponentPaddle(new Vector3(0, 2, 0));//placement of Player
+            AddObject(opponentPaddle);
 
-            //var wall2 = new RightWall(new Vector3(18.6f, 2, 2));
-            //AddObject(wall2);
+            rightWall = new RightWall(new Vector3(18.6f, 2, 2));
+            AddObject(rightWall);
 
-            var ball = new Ball(new Vector3(0, 2, 25));
+            ball = new Ball(new Vector3(0, 2, 25));
             AddObject(ball);
 
             player = new Player(new Vector3(0, 5, 50));//placement of player/camera
@@ -64,7 +71,7 @@ namespace WindowsClient.AirHockeyGame.Scenes
 
             base.Initialize();
 
-            paddleController = paddle1.Manager.GetComponent(typeof(PaddleController)) as PaddleController;
+            paddleController = paddle.Manager.GetComponent(typeof(PaddleController)) as PaddleController;
 
         }
 
