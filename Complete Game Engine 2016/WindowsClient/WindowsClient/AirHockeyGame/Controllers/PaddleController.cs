@@ -43,7 +43,6 @@ namespace WindowsClient.AirHockeyGame.Controllers
             if (Manager.HasComponent<BoxBody>())
             {
                 PaddleBody = Manager.GetComponent(typeof(BoxBody)) as BoxBody;
-                PaddleBody.Entity.CollisionInformation.Events.DetectingInitialCollision += CollidedWith;
                 PaddleBody.Entity.BecomeKinematic();
             }
             else
@@ -52,30 +51,9 @@ namespace WindowsClient.AirHockeyGame.Controllers
             }
 
             startLocation = Manager.Owner.Location;
-            startRotation = Manager.Owner.Rotation;
+            startRotation = Manager.Owner.Rotation + new Quaternion();
 
             base.Initialize();
-        }
-
-        private void CollidedWith(EntityCollidable sender, Collidable other, CollidablePairHandler pair)
-        {
-            if (other.Tag is PhysicsComponent.GameObjectInfo)
-            {
-                var tag = (other.Tag as PhysicsComponent.GameObjectInfo);
-
-                if (tag.ObjectType == typeof(Ball))
-                {
-                    hasCollision = true;
-                }
-                else
-                {
-                    hasCollision = false;
-                }
-            }
-            else
-            {
-                hasCollision = false;
-            }
         }
 
         private void Reset()

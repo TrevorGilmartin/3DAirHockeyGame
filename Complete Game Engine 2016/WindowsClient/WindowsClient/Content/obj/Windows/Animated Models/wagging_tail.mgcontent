@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/College Year_3/3D Programming/Air-Hockey Game/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Animated Models/wagging_tail.fbx</SourceFile>
+  <SourceFile>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Animated Models/wagging_tail.fbx</SourceFile>
   <SourceTime>2016-12-08T15:01:33.0745539+00:00</SourceTime>
-  <DestFile>D:/College Year_3/3D Programming/Air-Hockey Game/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/bin/Windows/Animated Models/wagging_tail.xnb</DestFile>
-  <DestTime>2017-01-21T13:06:36.0891516+00:00</DestTime>
+  <DestFile>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/bin/Windows/Animated Models/wagging_tail.xnb</DestFile>
+  <DestTime>2017-01-22T13:18:02.0765601+00:00</DestTime>
   <Importer>FbxImporter</Importer>
   <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>ModelProcessor</Processor>
@@ -66,7 +66,7 @@
   </Parameters>
   <Dependencies />
   <BuildAsset>
-    <string>D:/College Year_3/3D Programming/Air-Hockey Game/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/bin/Windows/Textures/scale_0.xnb</string>
+    <string>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/bin/Windows/Textures/scale_0.xnb</string>
   </BuildAsset>
   <BuildOutput />
 </PipelineBuildEvent>

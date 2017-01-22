@@ -80,10 +80,6 @@ namespace WindowsClient.AirHockeyGame.Scenes
             spriteBatch.DrawString(spriteFont, "Space = Charge Shot", new Vector2(20, 90), Color.White);
             spriteBatch.DrawString(spriteFont, "Enter =  Shoot", new Vector2(20, 140), Color.White);
 
-            //drawing of info to be tracked ie done by referencing the amount of targets hit from the dart class or the int variable of the remaining darts.
-            spriteBatch.DrawString(spriteFont, "Darts Remaining : " + dartsLeft, new Vector2(40, 10), Color.Black);
-            spriteBatch.DrawString(spriteFont, "Targets Hit : " + Player.TargetsHit, new Vector2(600, 10), Color.Black);
-
             float xLength = spriteFont.MeasureString("Power: " + paddleController.ThrowPower).X;
             //to record the numerical value of the strength of throwing the dart from its controller.
 
