@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D773546-1975-45FC-B44E-54A46DDA11FA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WindowsClient</RootNamespace>
+    <AssemblyName>WindowsClient</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
+    <MonoGameContentBuilderExe>
+    </MonoGameContentBuilderExe>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Windows\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Windows\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AirHockeyGame\Controllers\BallController.cs" />
+    <Compile Include="AirHockeyGame\Controllers\LeftWallController.cs" />
+    <Compile Include="AirHockeyGame\Controllers\OpponentPaddleController.cs" />
+    <Compile Include="AirHockeyGame\Controllers\PaddleController.cs" />
+    <Compile Include="AirHockeyGame\Controllers\RightWallController.cs" />
+    <Compile Include="AirHockeyGame\GameObjects\Ball.cs" />
+    <Compile Include="AirHockeyGame\GameObjects\LeftWall.cs" />
+    <Compile Include="AirHockeyGame\GameObjects\OpponentPaddle.cs" />
+    <Compile Include="AirHockeyGame\GameObjects\Paddle.cs" />
+    <Compile Include="AirHockeyGame\GameObjects\Player.cs" />
+    <Compile Include="AirHockeyGame\GameObjects\RightWall.cs" />
+    <Compile Include="AirHockeyGame\Scenes\MainLevelScene.cs" />
+    <Compile Include="AirHockeyGame\Scenes\MainMenuScene.cs" />
+    <Compile Include="AirHockeyGame\Scenes\RetryScene.cs" />
+    <Compile Include="AirHockeyGame\Scenes\VictoryScene.cs" />
+    <Compile Include="Game1.cs" />
+    <Compile Include="GameObjects\BasicAnimatedObject.cs" />
+    <Compile Include="GameObjects\BasicSkinnedObject.cs" />
+    <Compile Include="GameObjects\StaticModelObject.cs" />
+    <Compile Include="GameObjects\BasicModelObject.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="BEPUik">
+      <HintPath>..\BEPUphysics v1.4.0\BEPUik.dll</HintPath>
+    </Reference>
+    <Reference Include="BEPUphysics">
+      <HintPath>..\BEPUphysics v1.4.0\BEPUphysics.dll</HintPath>
+    </Reference>
+    <Reference Include="BEPUutilities">
+      <HintPath>..\BEPUphysics v1.4.0\BEPUutilities.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Fonts\board.jpg" />
+    <Content Include="Content\Textures\base.png" />
+    <Content Include="Content\Textures\blades.png" />
+    <Content Include="Content\Textures\board.jpg" />
+    <Content Include="Content\Textures\cubecover.png" />
+    <Content Include="Content\Textures\hud.png" />
+    <Content Include="Content\Textures\menu.png" />
+    <Content Include="Content\Textures\pit.png" />
+    <Content Include="Content\Textures\robot.png" />
+    <Content Include="Content\Textures\scale.jpg" />
+    <Content Include="Content\Textures\thumbnail\board.jpg" />
+    <Content Include="Content\Textures\thumbnail\T_Lane.png" />
+    <Content Include="Content\Textures\thumbnail\T_Poster.png" />
+    <Content Include="Content\Textures\thumbnail\T_Wall.png" />
+    <Content Include="Content\Textures\T_Ball.png" />
+    <Content Include="Content\Textures\T_Lane.png" />
+    <Content Include="Content\Textures\T_LaneEnd.png" />
+    <Content Include="Content\Textures\T_Pin.png" />
+    <Content Include="Content\Textures\T_Poster.png" />
+    <Content Include="Content\Textures\T_Wall.png" />
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Engine\Engine.csproj">
+      <Project>{40cd7c99-39a0-4cd0-ada8-b3d6fd33fad7}</Project>
+      <Name>Engine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Content\Animated Models\wagging_tail.fbx" />
+    <None Include="Content\Fonts\bigFont.spritefont" />
+    <None Include="Content\Fonts\sfont.spritefont" />
+    <None Include="Content\Models\ball.fbx" />
+    <None Include="Content\Models\bowlingball.fbx" />
+    <None Include="Content\Models\cone.fbx" />
+    <None Include="Content\Models\cube.fbx" />
+    <None Include="Content\Models\cylinder.fbx" />
+    <None Include="Content\Models\guide.fbx" />
+    <None Include="Content\Models\lane.fbx" />
+    <None Include="Content\Models\laneend.fbx" />
+    <None Include="Content\Models\pin.fbx" />
+    <None Include="Content\Models\pit.fbx" />
+    <None Include="Content\Models\robot.FBX" />
+    <None Include="Content\Models\room.fbx" />
+    <None Include="Content\Models\spinner.fbx" />
+    <None Include="Content\Models\spinnerCylinder.fbx" />
+    <None Include="Content\Models\turbine.fbx" />
+    <None Include="Content\Models\w9bounds.fbx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scenes\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
