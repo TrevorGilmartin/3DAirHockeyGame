@@ -43,7 +43,18 @@
     <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Models/turbine.fbx</File>
     <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Models/w9bounds.fbx</File>
     <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Animated Models/wagging_tail.fbx</File>
-    <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Models/board.fbx</File>
     <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Models/wall.FBX</File>
+    <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Models/floor.FBX</File>
+    <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Sounds/thegame.mp3</File>
+    <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Textures/Background.png</File>
+    <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Textures/MainMenu.png</File>
+    <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Fonts/biggestFont.spritefont</File>
+    <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Sounds/failure.mp3</File>
+    <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Textures/failure.jpg</File>
+    <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Textures/failureBackground.png</File>
+    <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Sounds/mainSong.mp3</File>
+    <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Textures/winner.jpg</File>
+    <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Textures/winnerBackground.jpg</File>
+    <File>D:/College Year_3/3D Programming/Air-Hockey Game Github/Complete Game Engine 2016/WindowsClient/WindowsClient/Content/Sounds/winning.mp3</File>
   </SourceFiles>
 </SourceFileCollection>

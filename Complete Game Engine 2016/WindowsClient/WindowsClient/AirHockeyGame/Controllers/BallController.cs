@@ -22,7 +22,7 @@ namespace WindowsClient.AirHockeyGame.Controllers
 
         private SphereBody ballSphere;
         private BEPUutilities.Vector3 impulse = new BEPUutilities.Vector3();
-        private BEPUutilities.Vector3 angularImpulse = new BEPUutilities.Vector3();
+        private BEPUutilities.Vector3 currentImpulse = new BEPUutilities.Vector3();
 
         //where is the original location of the ball
         private Vector3 startLocation;
@@ -32,6 +32,8 @@ namespace WindowsClient.AirHockeyGame.Controllers
         private bool wasRightWallHit;
         private bool wasOpponentPaddleHit;
         private bool wasPaddleHit;
+
+        public bool hasFailed { get; set; }
 
         public BallController() : base() { }
 
@@ -77,7 +79,7 @@ namespace WindowsClient.AirHockeyGame.Controllers
                     wasOpponentPaddleHit = true;
                 }
 
-                else if (tag.ObjectType == typeof(OpponentPaddle))
+                else if (tag.ObjectType == typeof(Paddle))
                 {
                     wasPaddleHit = true;
                 }
@@ -100,6 +102,11 @@ namespace WindowsClient.AirHockeyGame.Controllers
 
         public override void Update()
         {
+            if (InputEngine.IsKeyPressed(Keys.R))
+                Reset();
+
+            ballSphere.Entity.CollisionInformation.Events.DetectingInitialCollision += CollidedWith;
+
             Random rand = new Random();
             MovementSpeed = rand.Next(3, 10);
             isNegativeStart = 1;/*rand.Next(0, 1);*/
@@ -108,15 +115,41 @@ namespace WindowsClient.AirHockeyGame.Controllers
 
             if (wasOpponentPaddleHit)
             {
-                impulse.Z = (MovementSpeed * 2);
+                impulse.Z = (MovementSpeed * .1f);
                 ballSphere.Entity.LinearVelocity += impulse;
+
+                wasOpponentPaddleHit = false;
             }
 
             if (wasPaddleHit)
             {
-                impulse.Z = (MovementSpeed * 2);
+                impulse.Z = -(MovementSpeed * .1f);
                 ballSphere.Entity.LinearVelocity += impulse;
+
+                wasPaddleHit = false;
             }
+
+            if (wasLeftWallHit)
+            {
+                impulse.X = (MovementSpeed * .1f);
+                ballSphere.Entity.LinearVelocity += impulse;
+
+                wasLeftWallHit = false;
+            }
+
+            
+            if (wasRightWallHit)
+            {
+                impulse.X = -(MovementSpeed * .1f);
+                ballSphere.Entity.LinearVelocity += impulse;
+
+                wasRightWallHit = false;
+            }
+
+            if (ballSphere.Entity.Position.Z == 51)
+                hasFailed = true;
+
+            ballSphere.Entity.LinearVelocity += impulse;
             base.Update();
         }
 
@@ -131,12 +164,12 @@ namespace WindowsClient.AirHockeyGame.Controllers
 
                     if (isNegativeStart == 0)
                     {
-                        impulse.Z = (MovementSpeed * 5);
+                        impulse.Z = (MovementSpeed * .1f);
                         ballSphere.Entity.LinearVelocity += impulse;
                     }
                     else if (isNegativeStart == 1)
                     {
-                        impulse.Z = -(MovementSpeed * 5);
+                        impulse.Z = -(MovementSpeed * .1f);
                         //impulse.X = -(MovementSpeed * 5);
                         ballSphere.Entity.LinearVelocity += impulse;
                         //angularImpulse.Y = -(MovementSpeed * 5);

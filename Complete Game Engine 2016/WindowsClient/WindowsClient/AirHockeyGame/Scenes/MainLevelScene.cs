@@ -22,6 +22,7 @@ namespace WindowsClient.AirHockeyGame.Scenes
         SpriteBatch spriteBatch;
         SpriteFont spriteFont;
         Texture2D HUD;
+        Song sgMusic;
         public static int dartsLeft = 10;
 
         public static Player player;
@@ -32,8 +33,6 @@ namespace WindowsClient.AirHockeyGame.Scenes
         public static RightWall rightWall;
 
         PaddleController paddleController;
-        SoundEffect seFail;
-
 
         public MainLevelScene(GameEngine engine) : base("AirHockey", engine)
         {
@@ -45,20 +44,24 @@ namespace WindowsClient.AirHockeyGame.Scenes
             //Assignment of Variables
             spriteBatch = new SpriteBatch(GameUtilities.GraphicsDevice);
             spriteFont = GameUtilities.Content.Load<SpriteFont>("Fonts\\bigFont");
+            sgMusic = GameUtilities.Content.Load<Song>("Sounds\\mainSong");
+
+            MediaPlayer.Stop();
+            MediaPlayer.Play(sgMusic);
             //seFail = GameUtilities.Content.Load<SoundEffect>("SoundEffects\\Fail");
 
-            AddObject(new StaticModelObject("room", Vector3.Zero));
+            AddObject(new StaticModelObject("floor", Vector3.Zero));
 
             paddle = new Paddle(new Vector3(0, 2, 50));//placement of Dart
             AddObject(paddle);
 
-            leftWall = new LeftWall(new Vector3(5.5f, 2, 2));
+            leftWall = new LeftWall(new Vector3(-9, 2, 25));
             AddObject(leftWall);
 
             opponentPaddle = new OpponentPaddle(new Vector3(0, 2, 0));//placement of Player
             AddObject(opponentPaddle);
 
-            rightWall = new RightWall(new Vector3(18.6f, 2, 2));
+            rightWall = new RightWall(new Vector3(9, 2, 25));
             AddObject(rightWall);
 
             ball = new Ball(new Vector3(0, 2, 25));
@@ -72,7 +75,6 @@ namespace WindowsClient.AirHockeyGame.Scenes
             base.Initialize();
 
             paddleController = paddle.Manager.GetComponent(typeof(PaddleController)) as PaddleController;
-
         }
 
         public override void DrawUI()
@@ -106,22 +108,22 @@ namespace WindowsClient.AirHockeyGame.Scenes
             //{
             //    Engine.LoadScene(new VictoryScene(Engine));
             //}
+            if (ball.Location.Z > 60)
+            {
+                MediaPlayer.Stop();
+                Engine.LoadScene(new RetryScene(Engine));
+            }
+
+            if (ball.Location.Z < -10)
+            {
+                MediaPlayer.Stop();
+                Engine.LoadScene(new VictoryScene(Engine));
+            }
 
             if (InputEngine.IsKeyPressed(Keys.M))
             {
-                Engine.LoadScene(new MainMenuScene(Engine));
-            }
-
-            if (PaddleController.hasCollision == true && InputEngine.IsKeyPressed(Keys.Enter))
-            {
-                dartsLeft--;
-            }
-
-            if (dartsLeft == 0)
-            {
-                Engine.LoadScene(new RetryScene(Engine));
                 MediaPlayer.Stop();
-                seFail.Play();
+                Engine.LoadScene(new MainMenuScene(Engine));
             }
             base.HandleInput();
         }

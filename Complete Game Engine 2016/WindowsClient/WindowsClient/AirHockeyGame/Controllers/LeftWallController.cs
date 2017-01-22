@@ -1,5 +1,7 @@
-﻿using Engine.Base;
+﻿using Engine;
+using Engine.Base;
 using Engine.Components.Physics;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,7 @@ namespace WindowsClient.AirHockeyGame.Controllers
     public class LeftWallController : Component
     {
         private BoxBody LeftWallBody;
+        private float rotation = 90;
 
         public LeftWallController() : base() { }
 
@@ -20,6 +23,8 @@ namespace WindowsClient.AirHockeyGame.Controllers
             {
                 LeftWallBody = Manager.GetComponent(typeof(BoxBody)) as BoxBody;
                 LeftWallBody.Entity.BecomeKinematic();
+
+                //LeftWallBody.Entity.Orientation = new BEPUutilities.Quaternion(-0, -0, -rotation, -rotation);
             }
             else
             {

@@ -1,7 +1,9 @@
 ﻿using Engine;
 using Engine.Base;
 using Engine.Components.Physics;
+using Engine.Engines;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,9 @@ namespace WindowsClient.AirHockeyGame.Controllers
     {
         private BoxBody OpponentPaddleBody;
         private Ball ball;
+        private Vector3 startLocation;
+        private Quaternion startRotation;
+        private float distance = 6;
 
         public OpponentPaddleController() : base() { }
 
@@ -35,14 +40,30 @@ namespace WindowsClient.AirHockeyGame.Controllers
             base.Initialize();
         }
 
+        private void Reset()
+        {
+            //resets its velocity and makes it kinetimatic
+            OpponentPaddleBody.Entity.LinearVelocity = BEPUutilities.Vector3.Zero;
+            OpponentPaddleBody.Entity.AngularVelocity = BEPUutilities.Vector3.Zero;
+            OpponentPaddleBody.Entity.BecomeKinematic();
+
+            OpponentPaddleBody.Entity.Position = MathConverter.Convert(startLocation);//resets the position
+            OpponentPaddleBody.Entity.Orientation = MathConverter.Convert(startRotation);//resets the orientation
+        }
+
         public override void Update()
         {
-            if (OpponentPaddleBody.Entity.Position.X > ball.Location.X)
-                OpponentPaddleBody.Entity.WorldTransform *=
-                                MathConverter.Convert(Matrix.CreateTranslation(-.1f, 0, 0));
+            if (InputEngine.IsKeyPressed(Keys.R))
+                Reset();
 
             if (OpponentPaddleBody.Entity.Position.X > ball.Location.X)
-                OpponentPaddleBody.Entity.WorldTransform *=
+                if (Manager.Owner.Location.X > startLocation.X - distance)
+                    OpponentPaddleBody.Entity.WorldTransform *=
+                                MathConverter.Convert(Matrix.CreateTranslation(-.1f, 0, 0));
+
+            if (-OpponentPaddleBody.Entity.Position.X > -ball.Location.X)
+                if (-Manager.Owner.Location.X > -startLocation.X - distance)
+                    OpponentPaddleBody.Entity.WorldTransform *=
                                 MathConverter.Convert(Matrix.CreateTranslation(.1f, 0, 0));
             base.Update();
         }

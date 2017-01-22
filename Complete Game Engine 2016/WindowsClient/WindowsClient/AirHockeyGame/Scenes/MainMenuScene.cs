@@ -16,8 +16,14 @@ namespace WindowsClient.AirHockeyGame.Scenes
     {
         #region scene that contains the intial menu.
         SpriteBatch spriteBatch;//used to draw
-        Texture2D txMenu;//the actual texture used to be the context for the menu
+        Texture2D txBackground;//the actual texture used to be the context for the menu
+        SpriteFont spriteFontBig;
+        SpriteFont spriteFontBiggest;
         Song sgMusic;//the music that will play as the backing them when the spacebar is pressed
+        private string buttonMessage;
+        private string gameMessage;
+        Color colour;
+        bool shouldAlphaGoUp;
         #endregion
 
         public MainMenuScene(GameEngine engine):base("menu", engine)
@@ -29,23 +35,50 @@ namespace WindowsClient.AirHockeyGame.Scenes
         //load in the menu texture
         public override void Initialize()
         {
-            sgMusic = GameUtilities.Content.Load<Song>("Music\\TavernMusic");//matching the variables to their respected positions.
+            sgMusic = GameUtilities.Content.Load<Song>("Sounds\\thegame");//matching the variables to their respected positions.
             spriteBatch = new SpriteBatch(GameUtilities.GraphicsDevice);
-            txMenu = GameUtilities.Content.Load<Texture2D>("Textures\\DARTMENU");
+            txBackground = GameUtilities.Content.Load<Texture2D>("Textures\\background");
+            spriteFontBig = GameUtilities.Content.Load<SpriteFont>("Fonts\\bigFont");
+            spriteFontBiggest = GameUtilities.Content.Load<SpriteFont>("Fonts\\biggestFont");
 
+            buttonMessage = "Press Enter to Play";
+            gameMessage = "Air-Hockey";
+
+            colour.A = 255;
+            colour.B = 150;
+            colour.G = 220;
+            colour.R = 30;
+
+            MediaPlayer.Play(sgMusic);
             base.Initialize();
         }
 
-        //if the spacebar is pressed
-        //Use Engine.LoadScene to load the BowlingScene
         public override void HandleInput()
         {
-            if (InputEngine.IsKeyPressed(Keys.Space))//load the level scene when pressed
+            if (shouldAlphaGoUp)
             {
-                Engine.LoadScene(new MainLevelScene(Engine));
-                //MediaPlayer.Play(sgMusic);//plays the backing theme , bonus points if you recognise it
+                colour.A++;
+                colour.B++;
+                colour.G++;
+                colour.R++;
+            }
+            else
+            {
+                colour.A--;
+                colour.B--;
+                colour.G--;
+                colour.R--;
             }
 
+            if (colour.A == 0 || colour.B == 0 || colour.G == 0 || colour.R == 0)
+                shouldAlphaGoUp = true;
+            if (colour.A == 255 || colour.B == 255 || colour.G == 255 || colour.R == 255)
+                base.Update();
+
+            if (InputEngine.IsKeyPressed(Keys.Enter))//load the level scene when pressed
+            {
+                Engine.LoadScene(new MainLevelScene(Engine));
+            }
             base.HandleInput();
         }
 
@@ -55,9 +88,17 @@ namespace WindowsClient.AirHockeyGame.Scenes
         {
             spriteBatch.Begin();
 
-            spriteBatch.Draw(txMenu, new Rectangle(0, 0, GameUtilities.GraphicsDevice.Viewport.Width,
-                GameUtilities.GraphicsDevice.Viewport.Height), Color.White);
+            spriteBatch.Draw(txBackground, new Rectangle(0, 0, GameUtilities.GraphicsDevice.Viewport.Width,
+                              GameUtilities.GraphicsDevice.Viewport.Height),Color.White);
             //draws the texture used for the background in its designated position
+
+            spriteBatch.DrawString(spriteFontBig, buttonMessage, new Vector2(
+                GameUtilities.GraphicsDevice.Viewport.Width / 2 - 200,
+                GameUtilities.GraphicsDevice.Viewport.Height / 2 - 150), Color.White);
+
+            spriteBatch.DrawString(spriteFontBiggest, gameMessage, new Vector2(
+              GameUtilities.GraphicsDevice.Viewport.Width / 2 - 200,
+              GameUtilities.GraphicsDevice.Viewport.Height / 2 - 50), colour);
 
             spriteBatch.End();
 

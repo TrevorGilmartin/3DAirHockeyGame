@@ -99,11 +99,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Fonts\board.jpg" />
+    <Content Include="Content\Sounds\failure.mp3" />
+    <Content Include="Content\Sounds\mainSong.mp3" />
+    <Content Include="Content\Sounds\thegame.mp3" />
+    <Content Include="Content\Sounds\winning.mp3" />
+    <Content Include="Content\Textures\Background.png" />
     <Content Include="Content\Textures\base.png" />
     <Content Include="Content\Textures\blades.png" />
     <Content Include="Content\Textures\board.jpg" />
     <Content Include="Content\Textures\cubecover.png" />
+    <Content Include="Content\Textures\failure.jpg" />
+    <Content Include="Content\Textures\failureBackground.png" />
     <Content Include="Content\Textures\hud.png" />
+    <Content Include="Content\Textures\MainMenu.png" />
     <Content Include="Content\Textures\menu.png" />
     <Content Include="Content\Textures\pit.png" />
     <Content Include="Content\Textures\robot.png" />
@@ -118,6 +126,8 @@
     <Content Include="Content\Textures\T_Pin.png" />
     <Content Include="Content\Textures\T_Poster.png" />
     <Content Include="Content\Textures\T_Wall.png" />
+    <Content Include="Content\Textures\winner.jpg" />
+    <Content Include="Content\Textures\winnerBackground.jpg" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +144,7 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="Content\Animated Models\wagging_tail.fbx" />
     <None Include="Content\Fonts\bigFont.spritefont" />
+    <None Include="Content\Fonts\biggestFont.spritefont" />
     <None Include="Content\Fonts\sfont.spritefont" />
     <None Include="Content\Models\ball.fbx" />
     <None Include="Content\Models\bowlingball.fbx" />
@@ -145,6 +156,7 @@
     <None Include="Content\Models\laneend.fbx" />
     <None Include="Content\Models\pin.fbx" />
     <None Include="Content\Models\pit.fbx" />
+    <None Include="Content\Models\puck.FBX" />
     <None Include="Content\Models\robot.FBX" />
     <None Include="Content\Models\room.fbx" />
     <None Include="Content\Models\spinner.fbx" />

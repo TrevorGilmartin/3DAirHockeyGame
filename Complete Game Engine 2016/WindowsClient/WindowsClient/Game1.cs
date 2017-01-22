@@ -44,7 +44,7 @@ namespace WindowsClient
         protected override void LoadContent()
         {
             GameUtilities.DebugSpriteBatch = new SpriteBatch(GraphicsDevice);
-            engine.LoadScene(new MainLevelScene(engine));
+            engine.LoadScene(new VictoryScene(engine));
         }
 
         protected override void Update(GameTime gameTime)

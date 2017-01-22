@@ -24,7 +24,7 @@ namespace WindowsClient.AirHockeyGame.Controllers
         private BEPUutilities.Vector3 ForwardMomentum = new BEPUutilities.Vector3();
         private Vector3 startLocation;
         private Quaternion startRotation;
-        private float distance = 4;
+        private float distance = 6;
         private Player data;
 
         //has the ball being thrown

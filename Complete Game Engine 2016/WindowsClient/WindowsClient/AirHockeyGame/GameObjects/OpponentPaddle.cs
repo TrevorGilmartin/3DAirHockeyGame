@@ -25,8 +25,8 @@ namespace WindowsClient.AirHockeyGame.GameObjects
         public override void Initialize()
         {
             //holds the model and associates this with the class
-            Manager.AddComponent(new BasicEffectModel("board"));
-            Manager.AddComponent(new BoxBody(15));//add the body and setting the mass
+            Manager.AddComponent(new BasicEffectModel("cube"));
+            Manager.AddComponent(new BoxBody());//add the body and setting the mass
             Manager.AddComponent(new OpponentPaddleController());//associating the controller with the class
 
             base.Initialize();
